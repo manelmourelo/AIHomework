@@ -12,7 +12,10 @@ public class KinematicFaceMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// TODO 7: rotate the whole tank to look in the movement direction
-		// Extremnely similar to TODO 2
-	}
+        // TODO 7: rotate the whole tank to look in the movement direction
+        // Extremnely similar to TODO 2
+        float angle = Mathf.Atan2(move.mov_velocity.x, move.mov_velocity.z);
+        angle *= 57.2958f;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+    }
 }
