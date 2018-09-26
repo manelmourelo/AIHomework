@@ -19,6 +19,7 @@ public class KinematicArrive : MonoBehaviour {
 		// TODO 8: calculate the distance. If we are in min_distance radius, we stop moving
 		// Otherwise devide the result by time_to_target (0.25 feels good)
 		// Then call move.SetMovementVelocity()
+        
 	}
 
 	void OnDrawGizmosSelected() 
