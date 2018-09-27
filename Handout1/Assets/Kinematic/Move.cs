@@ -33,7 +33,7 @@ public class Move : MonoBehaviour {
         aim.transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
         // TODO 3: stretch it the arrow (arrow.value) to show how fast the tank is getting push in
         // that direction. Adjust with some factor so the arrow is visible.
-        arrow.value = mov_vel_magnitude * 4.0f;
+        arrow.value = mov_vel_magnitude /** 4.0f*/;
         // TODO 4: update tank position based on final mov_velocity and deltatime
         mov_velocity.y = 0;
         transform.position += mov_velocity * Time.deltaTime;
