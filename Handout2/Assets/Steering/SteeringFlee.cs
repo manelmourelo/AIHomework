@@ -18,6 +18,10 @@ public class SteeringFlee : MonoBehaviour {
 
 	public void Steer(Vector3 target)
 	{
-		// TODO 2: Same as Steering seek but opposite direction
-	}
+        // TODO 2: Same as Steering seek but opposite direction
+        Vector3 dif = move.target.transform.position - transform.position;
+        dif.Normalize();
+        dif *= move.max_mov_acceleration;
+        move.AccelerateMovement(-dif);
+    }
 }

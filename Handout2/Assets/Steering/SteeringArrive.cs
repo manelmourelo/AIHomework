@@ -25,12 +25,29 @@ public class SteeringArrive : MonoBehaviour {
 		if(!move)
 			move = GetComponent<Move>();
 
-		// TODO 3: Create a vector to calculate our ideal velocity
-		// then calculate the acceleration needed to match that velocity
-		// before sending it to move.AccelerateMovement() clamp it to 
-		// move.max_mov_acceleration
-
-	}
+        // TODO 3: Create a vector to calculate our ideal velocity
+        // then calculate the acceleration needed to match that velocity
+        // before sending it to move.AccelerateMovement() clamp it to 
+        // move.max_mov_acceleration
+        Vector3 idealVel = move.target.transform.position - transform.position;
+        idealVel *= move.max_mov_acceleration;
+        if (idealVel.magnitude <= slow_distance)
+        {
+            if (idealVel.x>0)
+            {
+                idealVel.x -= 0.1f;
+            }
+            if (idealVel.z > 0)
+            {
+                idealVel.z -= 0.1f;
+            }
+        }
+        if (idealVel.magnitude < min_distance) {
+            move.AccelerateMovement(Vector3.zero);
+        }
+         idealVel /= time_to_target;
+         move.AccelerateMovement(idealVel);
+    }
 
 	void OnDrawGizmosSelected() 
 	{
