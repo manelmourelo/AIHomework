@@ -36,13 +36,20 @@ public class SteeringArrive : MonoBehaviour {
         if (disMag <= slow_distance)
         {
             dis = time_to_target * dis * disMag;
-            if (disMag < min_distance)
-            {
-                move.AccelerateMovement(Vector3.zero);
-            }
+            //if (disMag < min_distance)
+            //{
+            //    move.AccelerateMovement(Vector3.zero);
+            //}
             acceleration = (dis - move.movement) * move.max_mov_acceleration / disMag;
         }
-         move.AccelerateMovement(acceleration);
+        if (disMag < min_distance)
+        {
+            move.AccelerateMovement(Vector3.zero);
+        }
+        else
+        {
+            move.AccelerateMovement(acceleration);
+        }
     }
 
 	void OnDrawGizmosSelected() 
