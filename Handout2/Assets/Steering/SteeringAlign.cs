@@ -20,27 +20,30 @@ public class SteeringAlign : MonoBehaviour {
         // TODO 4: As with arrive, we first construct our ideal rotation
         // then accelerate to it. Use Mathf.DeltaAngle() to wrap around PI
         // Is the same as arrive but with angular velocities
-        float rotTar = Mathf.Atan2(move.movement.x, move.movement.z);
+        float rotArrow = Mathf.Atan2(move.arrow.transform.forward.x, move.arrow.transform.forward.z);
+        Vector3 axis = new Vector3(0,1,0);
+        move.target.transform.Rotate(axis, rotArrow);
+        float rotTar = Mathf.Atan2(move.target.transform.forward.x, move.target.transform.forward.z);
         float rot = Mathf.Atan2(transform.forward.x, transform.forward.z);
         rotTar *= Mathf.Rad2Deg;
         rot *= Mathf.Rad2Deg;
         float rotDif = Mathf.DeltaAngle(rotTar, rot);
+        //rotDif = Mathf.Clamp(rotDif, -move.max_rot_acceleration, move.max_rot_acceleration);
 
         float rotSize = Mathf.Abs(rotDif);
 
         if (rotSize > slow_angle)
         {
-            rotTar = 1.0f;
+            rotTar = 180.0f;
         }
         else
         {
-            rotTar = 1.0f * rotSize / slow_angle;
+            rotTar = 180.0f * rotSize / slow_angle;
         }
 
         rotTar *= rotDif / rotSize;
-        Vector3 charRot = transform.rotation.ToEulerAngles();
-        float characterRot = Mathf.Atan2(charRot.x, charRot.z);
-        float acceleration = rotTar - characterRot;
+
+        float acceleration = rotTar - rot;
         acceleration /= time_to_target;
 
         float absAcceleration = Mathf.Abs(acceleration);
@@ -50,7 +53,14 @@ public class SteeringAlign : MonoBehaviour {
             acceleration *= move.max_rot_acceleration;
         }
 
-        move.AccelerateRotation(acceleration);
+        if (rotSize < min_angle)
+        {
+            move.SetRotationVelocity(0.0f);
+        }
+        else
+        {
+            move.AccelerateRotation(-acceleration);
+        }
 
     }
 }
