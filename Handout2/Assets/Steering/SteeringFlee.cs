@@ -18,6 +18,10 @@ public class SteeringFlee : MonoBehaviour {
 
 	public void Steer(Vector3 target)
 	{
+        if (!move)
+        {
+            move = GetComponent<Move>();
+        }
         // TODO 2: Same as Steering seek but opposite direction
         Vector3 dif = move.target.transform.position - transform.position;
         dif.Normalize();

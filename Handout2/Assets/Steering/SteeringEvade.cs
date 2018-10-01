@@ -7,13 +7,13 @@ public class SteeringEvade : MonoBehaviour {
     public float max_prediction;
 
     Move move;
-    SteeringArrive arrive;
+    SteeringFlee flee;
 
     // Use this for initialization
     void Start()
     {
         move = GetComponent<Move>();
-        arrive = GetComponent<SteeringArrive>();
+        flee = GetComponent<SteeringFlee>();
     }
 
     // Update is called once per frame
@@ -44,6 +44,6 @@ public class SteeringEvade : MonoBehaviour {
 
         target += move.movement * prediction;
 
-        arrive.Steer(target);
+        flee.Steer(target);
     }
 }
