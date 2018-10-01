@@ -58,7 +58,7 @@ public class SteeringAlign : MonoBehaviour {
         }
         else
         {
-            move.AccelerateRotation(-acceleration);
+            move.AccelerateRotation(-acceleration*10);
         }
 
     }
