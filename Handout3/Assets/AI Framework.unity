@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 231449035}
   - component: {fileID: 231449037}
   - component: {fileID: 231449036}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 565980478}
   - component: {fileID: 565980480}
   - component: {fileID: 565980479}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1743,7 +1743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 996774104}
   - component: {fileID: 996774105}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1982,7 +1982,7 @@ GameObject:
   - component: {fileID: 1040142012}
   - component: {fileID: 1040142011}
   - component: {fileID: 1040142010}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2600,7 +2600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258218287}
   - component: {fileID: 1258218288}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2614,7 +2614,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1258218286}
   m_LocalRotation: {x: 0, y: 0.9848077, z: 0, w: -0.1736483}
-  m_LocalPosition: {x: -10.2, y: 0, z: 21.94}
+  m_LocalPosition: {x: -18.04, y: 0, z: 8.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1040142009}
@@ -2634,7 +2634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1
 --- !u!1 &1261209916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3944,7 +3944,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1810196857}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4087,7 +4087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835693871}
   - component: {fileID: 1835693873}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4112,7 +4112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000000059604645, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835693873
