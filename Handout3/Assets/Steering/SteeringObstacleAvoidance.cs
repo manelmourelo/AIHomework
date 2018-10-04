@@ -38,6 +38,7 @@ public class SteeringObstacleAvoidance : MonoBehaviour {
             if (hit1.distance <= avoid_distance)
             {
                 Vector3 acceleration = hit1.point - hit1.normal;
+                acceleration.y = 0;
                 move.AccelerateMovement(acceleration);
             }
         }
