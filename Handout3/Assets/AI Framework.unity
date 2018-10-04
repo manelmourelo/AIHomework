@@ -2591,6 +2591,10 @@ Prefab:
       propertyPath: mask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 11499750, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
+      propertyPath: search_radius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11427684, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
@@ -3425,7 +3429,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
-  search_radius: 10
+  search_radius: 5
   falloff:
     serializedVersion: 2
     m_Curve:
@@ -3939,6 +3943,10 @@ Prefab:
     - target: {fileID: 11454982, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
       propertyPath: mask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499750, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
+      propertyPath: search_radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11427684, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
