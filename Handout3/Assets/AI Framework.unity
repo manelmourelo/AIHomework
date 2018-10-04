@@ -905,7 +905,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: f698f69d64c51f8438d853e5c274e5fc, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f698f69d64c51f8438d853e5c274e5fc, type: 3}
@@ -1407,7 +1407,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e307cb54b57a59342868ad47d1ed0c30, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e307cb54b57a59342868ad47d1ed0c30, type: 3}
@@ -2505,7 +2505,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11454982, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11499750, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
       propertyPath: m_Enabled
@@ -2586,6 +2586,10 @@ Prefab:
     - target: {fileID: 198852, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454982, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
+      propertyPath: mask.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11427684, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
@@ -3452,14 +3456,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1579789855}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80e3618e1707546a19fff3fb11d7c9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   avoid_distance: 5
 --- !u!1 &1621344713
 GameObject:
@@ -3842,7 +3846,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11454982, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11499750, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
       propertyPath: m_Enabled
@@ -3931,6 +3935,10 @@ Prefab:
     - target: {fileID: 198852, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454982, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
+      propertyPath: mask.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11427684, guid: 77aab66f3904942bab33067e31d9d228, type: 2}
