@@ -12,30 +12,57 @@ public class Move : MonoBehaviour {
 	public float max_rot_velocity = 10.0f; // in degrees / second
 	public float max_rot_acceleration = 0.1f; // in degrees
 
-	[Header("-------- Read Only --------")]
+    private Vector3[] priority = new Vector3[6];
+    private float[] angularPriority = new float[6];
+
+    [Header("-------- Read Only --------")]
 	public Vector3 movement = Vector3.zero;
 	public float rotation = 0.0f; // degrees
 
 	// Methods for behaviours to set / add velocities
 	public void SetMovementVelocity (Vector3 velocity) 
 	{
-		movement = velocity;
+        movement = velocity;
 	}
 
-	public void AccelerateMovement (Vector3 velocity) 
+	public void AccelerateMovement (Vector3 velocity, int prior) 
 	{
-		movement += velocity;
-	}
+		//movement += velocity;
+        if (priority[prior].Equals(Vector3.zero))
+        {
+            priority[prior] = velocity;
+        }
+        else
+        {
+            Vector3 prev_vel = priority[prior];
+            Vector3 new_vel = prev_vel + velocity;
+            float velMagnitude = new_vel.magnitude;
+            Mathf.Clamp(velMagnitude, 0, max_mov_velocity);
+            new_vel.Normalize();
+            new_vel *= velMagnitude;
+            priority[prior] += new_vel;
+        }
+    }
 
 	public void SetRotationVelocity (float rotation_velocity) 
 	{
 		rotation = rotation_velocity;
 	}
 
-	public void AccelerateRotation (float rotation_acceleration) 
+	public void AccelerateRotation (float rotation_acceleration, int prior) 
 	{
-		rotation += rotation_acceleration;
-	}
+        //rotation += rotation_acceleration;
+        if (angularPriority[prior].Equals(Vector3.zero))
+        {
+            angularPriority[prior] = rotation_acceleration;
+        }
+        else
+        {
+            float new_rot = angularPriority[prior] + rotation_acceleration;
+            Mathf.Clamp(new_rot, 0, max_rot_acceleration);
+            angularPriority[prior] = new_rot;
+        }
+    }
 
 	
 	// Update is called once per frame
@@ -63,5 +90,18 @@ public class Move : MonoBehaviour {
 
 		// finally move
 		transform.position += movement * Time.deltaTime;
-	}
+
+        for (int i = priority.Length; i>=0; i--)
+        {
+            priority[i] = Vector3.zero;
+        }
+
+        for (int i = angularPriority.Length; i >= 0; i--)
+        {
+            angularPriority[i] = 0.0f;
+        }
+
+    }
+    
+
 }

@@ -43,6 +43,6 @@ public class SteeringAlign : SteeringAbstract
 		if(diff < 0)
 			angular_acceleration = -angular_acceleration;
 
-		move.AccelerateRotation(Mathf.Clamp(angular_acceleration, -move.max_rot_acceleration, move.max_rot_acceleration));
+		move.AccelerateRotation(Mathf.Clamp(angular_acceleration, -move.max_rot_acceleration, move.max_rot_acceleration), priority);
 	}
 }

@@ -40,7 +40,7 @@ public class SteeringSeparation : SteeringAbstract
         {
             if(final_strength > move.max_mov_acceleration)
                 final = final.normalized * move.max_mov_acceleration;
-            move.AccelerateMovement(final);
+            move.AccelerateMovement(final, priority);
         }
     }
 

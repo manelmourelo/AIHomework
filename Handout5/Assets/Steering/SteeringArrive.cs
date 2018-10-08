@@ -53,7 +53,7 @@ public class SteeringArrive : SteeringAbstract
 			acceleration *= move.max_mov_acceleration;
 		}
 
-		move.AccelerateMovement(acceleration);
+		move.AccelerateMovement(acceleration, priority);
 	}
 
 	void OnDrawGizmosSelected() 

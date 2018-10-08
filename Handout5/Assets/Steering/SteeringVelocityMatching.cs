@@ -34,7 +34,7 @@ public class SteeringVelocityMatching : SteeringAbstract
 				acceleration *= move.max_mov_acceleration;
 			}
 
-			move.AccelerateMovement(acceleration);
+			move.AccelerateMovement(acceleration, priority);
 		}
 	}
 }
