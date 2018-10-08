@@ -68,8 +68,27 @@ public class Move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		// cap velocity
-		if(movement.magnitude > max_mov_velocity)
+
+        for (int i= 0; i <= priority.Length; i++)
+        {
+            if (priority[i].Equals(Vector3.zero) == false)
+            {
+                movement = priority[i];
+                i = priority.Length + 1;
+            }
+        }
+
+        for (int i = 0; i <= angularPriority.Length; i++)
+        {
+            if (angularPriority[i].Equals(Vector3.zero) == false)
+            {
+                rotation = angularPriority[i];
+                i = angularPriority.Length + 1;
+            }
+        }
+
+        // cap velocity
+        if (movement.magnitude > max_mov_velocity)
 		{
 			movement.Normalize();
 			movement *= max_mov_velocity;
