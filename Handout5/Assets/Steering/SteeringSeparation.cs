@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SteeringSeparation : MonoBehaviour {
+public class SteeringSeparation : SteeringAbstract
+{
 
 	public LayerMask mask;
 	public float search_radius = 5.0f;

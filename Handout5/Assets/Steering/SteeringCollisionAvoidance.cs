@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SteeringCollisionAvoidance : MonoBehaviour {
+public class SteeringCollisionAvoidance : SteeringAbstract
+{
 
 	public LayerMask mask;
 	public float search_radius = 5.0f;
