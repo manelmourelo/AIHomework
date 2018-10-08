@@ -12,7 +12,9 @@ public class SteeringFollowPath : MonoBehaviour {
     Vector3 point = Vector3.zero;
     public GameObject path;
     private uint currentPoint = 0;
-    public float distanceToSearch = 1.0f;
+    public float distanceToSearch = 2.0f;
+
+    public float liebre = 0.0f;
 
     // Use this for initialization
     void Start () {
@@ -22,21 +24,13 @@ public class SteeringFollowPath : MonoBehaviour {
         // TODO 1: Calculate the closest point in the range [0,1] from this gameobject to the path
         math = path.GetComponent<BGCcMath>();
 
-        Vector3 closestPoint = math.Curve.Points[0].PositionWorld;
+        //Vector3 closestPoint = math.Curve.Points[0].PositionWorld;
+        float distance = 0.0f;
+        point = math.CalcPositionByClosestPoint(move.transform.position, out distance);
 
-        for (uint i = 0; i<math.Curve.PointsCount; i++)
-        {
-            Vector3 distance1 = transform.position - closestPoint;
-            Vector3 distance2 = transform.position - math.Curve.Points[i].PositionWorld;
-            if (distance2.magnitude < distance1.magnitude)
-            {
-                closestPoint = math.Curve.Points[i].PositionWorld;
-                currentPoint = i;
-            }
-        }
+        liebre = distance / math.GetDistance();
 
-        point = closestPoint;
-
+        point = math.CalcByDistanceRatio(BGCurveBaseMath.Field.Position, liebre);
     }
 	
 	// Update is called once per frame
@@ -45,19 +39,18 @@ public class SteeringFollowPath : MonoBehaviour {
         // TODO 2: Check if the tank is close enough to the desired point
         // If so, create a new point further ahead in the path
 
-        Vector3 distance = transform.position - point;
-        if (distance.magnitude <= distanceToSearch)
+        float distance = Vector3.Distance(move.transform.position, point);
+
+        if (distance <= distanceToSearch)
         {
-            currentPoint++;
-            if (currentPoint > math.Curve.PointsCount)
+            liebre += 0.05f;
+            if (liebre > 1.0f)
             {
-                currentPoint = 0;
+                liebre = 0.0f;
             }
-            point = math.Curve.Points[currentPoint].PositionWorld;
+            point = math.CalcByDistanceRatio(BGCurveBaseMath.Field.Position, liebre);
         }
-
-
-
+        
         seek.Steer(point);
 
 	}
@@ -69,7 +62,8 @@ public class SteeringFollowPath : MonoBehaviour {
 		{
 			// Display the explosion radius when selected
 			Gizmos.color = Color.green;
-			// Useful if you draw a sphere were on the closest point to the path
+            // Useful if you draw a sphere were on the closest point to the path
+            Gizmos.DrawSphere(point, 0.2f);
 		}
 
 	}
