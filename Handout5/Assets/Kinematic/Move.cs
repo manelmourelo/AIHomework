@@ -69,21 +69,21 @@ public class Move : MonoBehaviour {
 	void Update () 
 	{
 
-        for (int i= 0; i <= priority.Length; i++)
+        for (int i= 0; i < priority.Length; i++)
         {
             if (priority[i].Equals(Vector3.zero) == false)
             {
                 movement = priority[i];
-                i = priority.Length + 1;
+                //i = priority.Length + 1;
             }
         }
 
-        for (int i = 0; i <= angularPriority.Length; i++)
+        for (int i = 0; i < angularPriority.Length; i++)
         {
             if (angularPriority[i].Equals(Vector3.zero) == false)
             {
                 rotation = angularPriority[i];
-                i = angularPriority.Length + 1;
+                //i = angularPriority.Length + 1;
             }
         }
 
@@ -110,12 +110,12 @@ public class Move : MonoBehaviour {
 		// finally move
 		transform.position += movement * Time.deltaTime;
 
-        for (int i = priority.Length; i>=0; i--)
+        for (int i = priority.Length-1; i >= 0; i--)
         {
             priority[i] = Vector3.zero;
         }
 
-        for (int i = angularPriority.Length; i >= 0; i--)
+        for (int i = angularPriority.Length-1; i >= 0; i--)
         {
             angularPriority[i] = 0.0f;
         }

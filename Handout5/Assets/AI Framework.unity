@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdb74c0d43ad45458532f1a1ff22e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 0
+  priority: 5
   path: {fileID: 1079148645}
   distanceToSearch: 0.1
   liebre: 0
@@ -5233,12 +5233,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1579789855}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e439e859d063a4ca9983e1f7bb60411a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 0
+  priority: 1
   offset: {x: 0, y: 0, z: 0}
   radius: 1
   min_update: 0.5
