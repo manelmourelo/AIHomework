@@ -69,7 +69,7 @@ public class Move : MonoBehaviour {
 	void Update () 
 	{
 
-        for (int i= 0; i < priority.Length; i++)
+        for (int i= 1; i < priority.Length; i++)
         {
             if (priority[i].Equals(Vector3.zero) == false)
             {
@@ -78,7 +78,7 @@ public class Move : MonoBehaviour {
             }
         }
 
-        for (int i = 0; i < angularPriority.Length; i++)
+        for (int i = 1; i < angularPriority.Length; i++)
         {
             if (angularPriority[i].Equals(Vector3.zero) == false)
             {
