@@ -31,9 +31,22 @@ public class SetNavDestination : MonoBehaviour {
         Vector3 movement = character.transform.position - transform.position;
         movement.Normalize();
 
-        animations.SetFloat("vel x", movement.x);
+        if (movement.x >= 0) {
+            animations.SetFloat("vel x", movement.x);
+        }
+        else
+        {
+            animations.SetFloat("vel x", -movement.x);
+        }
 
-        animations.SetFloat("vel y", movement.z);
+        if (movement.z >= 0)
+        {
+            animations.SetFloat("vel y", movement.z);
+        }
+        else
+        {
+            animations.SetFloat("vel y", -movement.z);
+        }
 
     }
 }
